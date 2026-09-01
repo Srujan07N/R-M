@@ -33,20 +33,8 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center">
         <FloatingPetals />
 
-        {/* Central floral ornament */}
-        <motion.svg
-          width="64" height="64" viewBox="0 0 64 64"
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mb-5"
-        >
-          <path
-            d="M32 6c3 8 12 10 12 20 0 8-6 14-12 14S20 34 20 26c0-10 9-12 12-20Z"
-            fill="var(--color-gold-light)" fillOpacity="0.5" stroke="var(--color-maroon)" strokeWidth="1"
-          />
-          <circle cx="32" cy="24" r="3" fill="var(--color-maroon)" />
-        </motion.svg>
+        {/* Spacer to keep layout centered exactly as before after removing SVG */}
+        <div className="h-[64px] mb-5" aria-hidden="true" />
 
         <motion.p {...line(0.6)} className="font-display text-[10px] sm:text-xs md:text-sm lg:text-base tracking-[0.2em] sm:tracking-[0.28em] pl-[0.2em] sm:pl-[0.28em] text-maroon whitespace-nowrap -mx-4 sm:mx-0">
           ॥ {wedding.invocation} ॥
@@ -101,7 +89,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3, duration: 1 }}
-          className="mt-12 sm:mt-16 flex flex-col items-center gap-1 text-maroon/70 hover:text-maroon transition-colors"
+          className="mt-4 sm:mt-6 flex flex-col items-center gap-1 text-maroon/70 hover:text-maroon transition-colors"
         >
           <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}>
             <ChevronDown size={50} />
