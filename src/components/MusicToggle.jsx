@@ -20,12 +20,45 @@ export default function MusicToggle() {
     
     const onError = () => setAvailable(false)
     audio.addEventListener('error', onError)
-    
     audioRef.current = audio
+    
+    let interactionHandled = false
+    
+    const handleInteraction = () => {
+      if (interactionHandled) return
+      if (audioRef.current && audioRef.current.paused) {
+        audioRef.current.play()
+          .then(() => {
+            setPlaying(true)
+            interactionHandled = true
+            removeListeners()
+          })
+          .catch(() => {})
+      }
+    }
+
+    const removeListeners = () => {
+      window.removeEventListener('click', handleInteraction)
+      window.removeEventListener('touchstart', handleInteraction)
+      window.removeEventListener('scroll', handleInteraction)
+    }
+
+    // Try immediately (works if browser allows autoplay for this site)
+    audio.play().then(() => {
+      setPlaying(true)
+      interactionHandled = true
+    }).catch(() => {
+      // If blocked, wait for first user interaction
+      window.addEventListener('click', handleInteraction, { once: true })
+      window.addEventListener('touchstart', handleInteraction, { once: true })
+      window.addEventListener('scroll', handleInteraction, { once: true })
+    })
+
     return () => {
       audio.removeEventListener('error', onError)
       audio.pause()
       audio.removeAttribute('src')
+      removeListeners()
     }
   }, [])
 

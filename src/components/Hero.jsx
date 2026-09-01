@@ -98,11 +98,17 @@ export default function Hero() {
           transition={{ delay: 3, duration: 1 }}
           className="absolute bottom-8 flex flex-col items-center gap-1 text-maroon/70 hover:text-maroon transition-colors"
         >
-          <span className="font-display text-[10px] tracking-[0.3em] uppercase"></span>
-          <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}>
-            <ChevronDown size={18} />
-          </motion.span>
+
+
         </motion.a>
+        <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}>
+
+          <ChevronDown size={50} />
+        </motion.span>
+        {/* <span className="font-display text-[20px] tracking-[0.3em] uppercase">Scroll</span> */}
+
+
+
       </div>
     </section>
   )
