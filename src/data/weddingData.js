@@ -39,7 +39,7 @@ export const wedding = {
     { label: 'Ashok', number: '9449188530' },
   ],
   // Replace with the couple's own number, country code included, no plus or spaces.
-  rsvpWhatsAppNumber: '919449573011',
+  rsvpWhatsAppNumber: '919483614080',
   music: {
     src: '/audio/wedding-music.mp3',
   },

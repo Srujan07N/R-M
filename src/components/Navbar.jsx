@@ -25,7 +25,16 @@ export default function Navbar() {
   const handleClick = (href) => (e) => {
     e.preventDefault()
     setOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    
+    const element = document.querySelector(href)
+    if (!element) return
+    
+    try {
+      element.scrollIntoView({ behavior: 'smooth' })
+    } catch (error) {
+      // Fallback for older browsers (e.g. iOS Safari < 15.4) that throw an error for smooth behavior
+      element.scrollIntoView()
+    }
   }
 
   return (

@@ -81,7 +81,14 @@ export default function Hero() {
           href="#invitation"
           onClick={(e) => {
             e.preventDefault()
-            document.querySelector('#invitation')?.scrollIntoView({ behavior: 'smooth' })
+            const element = document.querySelector('#invitation')
+            if (element) {
+              try {
+                element.scrollIntoView({ behavior: 'smooth' })
+              } catch (err) {
+                element.scrollIntoView()
+              }
+            }
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
