@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
 import rmLogo from '../assets/RM.png'
 
 const LINKS = [
@@ -13,7 +11,6 @@ const LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -24,7 +21,6 @@ export default function Navbar() {
 
   const handleClick = (href) => (e) => {
     e.preventDefault()
-    setOpen(false)
     
     const element = document.querySelector(href)
     if (!element) return
@@ -66,40 +62,10 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <button
-          type="button"
-          className="md:hidden text-maroon"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+
       </nav>
 
-      <AnimatePresence>
-        {open && (
-          <motion.ul
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden bg-ivory-light/95 backdrop-blur-sm border-t border-gold/30"
-          >
-            {LINKS.map((l) => (
-              <li key={l.href} className="border-b border-gold/15 last:border-none">
-                <a
-                  href={l.href}
-                  onClick={handleClick(l.href)}
-                  className="block px-6 py-4 font-serif text-brown"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </motion.ul>
-        )}
-      </AnimatePresence>
+
     </header>
   )
 }
