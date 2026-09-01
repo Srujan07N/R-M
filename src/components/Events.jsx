@@ -3,13 +3,13 @@ import { CalendarDays, Clock, MapPin } from 'lucide-react'
 import { wedding } from '../data/weddingData'
 
 const EVENTS = [
-  {
-    title: 'Mehendi',
-    day: wedding.mehendi.day,
-    date: wedding.mehendi.dateDisplay,
-    time: wedding.mehendi.time,
-    place: wedding.mehendi.place,
-  },
+  // {
+  //   title: 'Mehendi',
+  //   day: wedding.mehendi.day,
+  //   date: wedding.mehendi.dateDisplay,
+  //   time: wedding.mehendi.time,
+  //   place: wedding.mehendi.place,
+  // },
   {
     title: 'Wedding Ceremony',
     day: wedding.weddingDay,
@@ -41,26 +41,28 @@ function EventCard({ event, delay }) {
         </p>
         <span className="block w-8 h-px bg-gold mx-auto mb-6" />
 
-        <div className="flex flex-col gap-3 items-center font-serif text-brown/80 text-[15px]">
-          <p className="flex items-center gap-2">
-            <CalendarDays size={16} className="text-gold-dark shrink-0" />
-            {event.day}, {event.date}
-          </p>
-          <p className="flex items-center gap-2">
-            <Clock size={16} className="text-gold-dark shrink-0" />
-            {event.time}
-          </p>
-          {event.link ? (
-            <a href={event.link} target="_blank" rel="noreferrer" className="flex items-start gap-2 text-left hover:text-maroon transition-colors">
-              <MapPin size={16} className="text-gold-dark shrink-0 mt-1" />
-              <span>{event.place}</span>
-            </a>
-          ) : (
-            <div className="flex items-start gap-2 text-left">
-              <MapPin size={16} className="text-gold-dark shrink-0 mt-1" />
-              <span>{event.place}</span>
-            </div>
-          )}
+        <div className="flex justify-center font-serif text-brown/80 text-[15px]">
+          <div className="flex flex-col gap-3 items-start">
+            <p className="flex items-center gap-3 text-left">
+              <CalendarDays size={18} className="text-gold-dark shrink-0" />
+              <span className="text-maroon font-semibold">{event.day}, {event.date}</span>
+            </p>
+            <p className="flex items-center gap-3 text-left">
+              <Clock size={18} className="text-gold-dark shrink-0" />
+              <span>{event.time}</span>
+            </p>
+            {event.link ? (
+              <a href={event.link} target="_blank" rel="noreferrer" className="flex items-start gap-3 text-left hover:text-maroon transition-colors">
+                <MapPin size={18} className="text-gold-dark shrink-0 mt-0.5" />
+                <span>{event.place}</span>
+              </a>
+            ) : (
+              <div className="flex items-start gap-3 text-left">
+                <MapPin size={18} className="text-gold-dark shrink-0 mt-0.5" />
+                <span>{event.place}</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </motion.div>
