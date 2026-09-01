@@ -47,8 +47,8 @@ export default function StarfieldBackground({ absolute = false, color = '200, 16
         const py = star.y * k + cy;
 
         if (px >= 0 && px <= width && py >= 0 && py <= height) {
-          const size = (1 - star.z / width) * 2.5;
-          const opacity = 1 - (star.z / width);
+          const size = Math.max(0, (1 - star.z / width) * 2.5);
+          const opacity = Math.max(0, 1 - (star.z / width));
           
           ctx.beginPath();
           ctx.arc(px, py, size, 0, Math.PI * 2);

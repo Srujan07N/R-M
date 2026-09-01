@@ -13,14 +13,19 @@ export default function MusicToggle() {
   const [available, setAvailable] = useState(true)
 
   useEffect(() => {
+    setAvailable(true)
     const audio = new Audio(wedding.music.src)
     audio.loop = true
     audio.volume = 0.5
-    audio.addEventListener('error', () => setAvailable(false))
+    
+    const onError = () => setAvailable(false)
+    audio.addEventListener('error', onError)
+    
     audioRef.current = audio
     return () => {
+      audio.removeEventListener('error', onError)
       audio.pause()
-      audio.src = ''
+      audio.removeAttribute('src')
     }
   }, [])
 
