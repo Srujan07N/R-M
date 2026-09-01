@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import FloatingPetals from './FloatingPetals'
+import ScratchToReveal from './ScratchToReveal'
 import { wedding } from '../data/weddingData'
 
 import bgVideo from '../assets/it_is_striking_and_I_don_t_wa.mp4'
@@ -67,9 +68,11 @@ export default function Hero() {
 
         <motion.div {...line(2.2)} className="mt-8 sm:mt-10 flex items-center gap-4">
           <span className="h-px w-8 bg-gold" />
-          <p className="font-display text-sm sm:text-base tracking-[0.2em] text-brown">
-            {wedding.weddingDateDisplay}
-          </p>
+          <ScratchToReveal width={240} height={40}>
+            <p className="font-display text-sm sm:text-base tracking-[0.2em] text-brown">
+              {wedding.weddingDateDisplay}
+            </p>
+          </ScratchToReveal>
           <span className="h-px w-8 bg-gold" />
         </motion.div>
 

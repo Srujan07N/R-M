@@ -27,9 +27,15 @@ function EventCard({ event, delay }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay, ease: 'easeOut' }}
-      className="relative flex-1 border border-maroon/60 p-1.5"
+      className="relative flex-1 p-[2px] overflow-hidden rounded-sm"
     >
-      <div className="border border-gold px-7 py-9 sm:px-9 sm:py-10 bg-ivory-light/70 text-center h-full">
+      <div 
+        className="absolute inset-[-100%] animate-[spin_6s_linear_infinite] opacity-80"
+        style={{
+          background: 'conic-gradient(from 0deg, transparent 0deg, var(--color-maroon) 90deg, transparent 180deg, var(--color-gold) 270deg, transparent 360deg)'
+        }}
+      />
+      <div className="relative border border-gold/40 px-7 py-9 sm:px-9 sm:py-10 bg-ivory-light text-center h-full rounded-sm">
         <p className="font-display text-lg sm:text-xl tracking-[0.15em] text-maroon uppercase mb-1">
           {event.title}
         </p>
