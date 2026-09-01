@@ -76,9 +76,14 @@ export default function Hero() {
           <span className="h-px w-8 bg-gold" />
         </motion.div>
 
-        <motion.p {...line(2.5)} className="mt-3 font-serif text-brown/70 text-sm sm:text-base max-w-xs">
-          {wedding.venue.name}, {wedding.venue.area}
-        </motion.p>
+        <motion.div {...line(2.5)} className="mt-5 border border-gold/50 p-4 sm:p-5 rounded-sm bg-ivory-light/40 backdrop-blur-sm flex flex-col items-center">
+          <span className="font-display text-[10px] sm:text-xs tracking-[0.2em] uppercase text-maroon mb-1">
+            Wedding Venue
+          </span>
+          <p className="font-serif text-brown text-sm sm:text-base max-w-xs text-center">
+            {wedding.venue.name}, {wedding.venue.area}
+          </p>
+        </motion.div>
 
         <motion.a
           href="#invitation"
@@ -96,17 +101,12 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3, duration: 1 }}
-          className="absolute bottom-8 flex flex-col items-center gap-1 text-maroon/70 hover:text-maroon transition-colors"
+          className="mt-12 sm:mt-16 flex flex-col items-center gap-1 text-maroon/70 hover:text-maroon transition-colors"
         >
-
-
+          <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}>
+            <ChevronDown size={50} />
+          </motion.span>
         </motion.a>
-        <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}>
-
-          <ChevronDown size={50} />
-        </motion.span>
-        {/* <span className="font-display text-[20px] tracking-[0.3em] uppercase">Scroll</span> */}
-
 
 
       </div>

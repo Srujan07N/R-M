@@ -22,25 +22,33 @@ export default function Venue() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mt-8 border border-gold bg-ivory-light/70 px-7 py-10 sm:px-10"
+          className="mt-8 relative p-[2px] overflow-hidden rounded-sm"
         >
-          <MapPin className="mx-auto text-maroon mb-4" size={26} />
-          <p className="font-display text-lg sm:text-xl text-brown">{wedding.venue.name}</p>
-          <p className="mt-1 font-serif text-brown/70">{wedding.venue.area}</p>
-
-          <div className="my-6">
-            <FloralDivider variant="simple" />
+          <div 
+            className="absolute inset-[-100%] animate-[spin_6s_linear_infinite] opacity-80"
+            style={{
+              background: 'conic-gradient(from 0deg, transparent 0deg, var(--color-maroon) 90deg, transparent 180deg, var(--color-gold) 270deg, transparent 360deg)'
+            }}
+          />
+          <div className="relative border border-gold/40 bg-ivory-light px-7 py-10 sm:px-10 rounded-sm">
+            <MapPin className="mx-auto text-maroon mb-4" size={26} />
+            <p className="font-display text-lg sm:text-xl text-brown">{wedding.venue.name}</p>
+            <p className="mt-1 font-serif text-brown/70">{wedding.venue.area}</p>
+  
+            <div className="my-6">
+              <FloralDivider variant="simple" />
+            </div>
+  
+            <a
+              href={wedding.venue.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-serif tracking-wide text-sm sm:text-[15px] bg-maroon text-ivory-light px-7 py-3 transition-transform duration-300 hover:-translate-y-0.5 hover:bg-maroon-light"
+            >
+              <Navigation size={16} />
+              Get Directions
+            </a>
           </div>
-
-          <a
-            href={wedding.venue.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-serif tracking-wide text-sm sm:text-[15px] bg-maroon text-ivory-light px-7 py-3 transition-transform duration-300 hover:-translate-y-0.5 hover:bg-maroon-light"
-          >
-            <Navigation size={16} />
-            Get Directions
-          </a>
         </motion.div>
       </div>
     </section>

@@ -15,23 +15,31 @@ function getTimeLeft() {
 
 function Unit({ label, value }) {
   return (
-    <div className="flex flex-col items-center justify-center w-[72px] h-[80px] sm:w-24 sm:h-28 border border-gold bg-ivory-light/70 relative">
-      <span className="absolute inset-1 border border-gold/30 pointer-events-none" />
-      <AnimatePresence mode="popLayout">
-        <motion.span
-          key={value}
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.35 }}
-          className="font-display text-2xl sm:text-3xl text-maroon"
-        >
-          {String(value).padStart(2, '0')}
-        </motion.span>
-      </AnimatePresence>
-      <span className="mt-1 font-serif text-[10px] sm:text-xs tracking-[0.15em] uppercase text-brown/60">
-        {label}
-      </span>
+    <div className="relative flex flex-col items-center justify-center w-[72px] h-[80px] sm:w-24 sm:h-28 p-[2px] overflow-hidden rounded-sm">
+      <div 
+        className="absolute inset-[-100%] animate-[spin_6s_linear_infinite] opacity-80"
+        style={{
+          background: 'conic-gradient(from 0deg, transparent 0deg, var(--color-maroon) 90deg, transparent 180deg, var(--color-gold) 270deg, transparent 360deg)'
+        }}
+      />
+      <div className="relative w-full h-full flex flex-col items-center justify-center border border-gold/40 bg-ivory-light rounded-sm">
+        <span className="absolute inset-1 border border-gold/20 pointer-events-none" />
+        <AnimatePresence mode="popLayout">
+          <motion.span
+            key={value}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.35 }}
+            className="font-display text-2xl sm:text-3xl text-maroon"
+          >
+            {String(value).padStart(2, '0')}
+          </motion.span>
+        </AnimatePresence>
+        <span className="mt-1 font-serif text-[10px] sm:text-xs tracking-[0.15em] uppercase text-brown/60">
+          {label}
+        </span>
+      </div>
     </div>
   )
 }
