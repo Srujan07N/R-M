@@ -4,7 +4,7 @@ import FloatingPetals from './FloatingPetals'
 import ScratchToReveal from './ScratchToReveal'
 import { wedding } from '../data/weddingData'
 
-import bgVideo from '../assets/it_is_striking_and_I_don_t_wa.mp4'
+import bgVideo from '../assets/WhatsApp Video 2026-09-01 at 8.19.49 PM.mp4'
 import StarfieldBackground from './StarfieldBackground'
 
 const line = (delay) => ({
