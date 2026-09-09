@@ -5,13 +5,13 @@ export const wedding = {
   groom: {
     honorific: 'Chi.',
     name: 'Rithesh',
-    parentage: 'S/o Late Jeekinamane Achutha Chowta',
+    parentage: '',
     family: '',
   },
   bride: {
     honorific: 'Chi. Sou.',
     name: 'Madhura ',
-    parentage: 'D/o Late Manappuguthu K. P. Moorthy Shetty, Kasaragodu',
+    parentage: '',
     family: '',
   },
   invocation: 'Shri Kuladevata Prasanna',
